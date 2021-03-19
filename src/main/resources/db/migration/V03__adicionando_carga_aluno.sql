@@ -1,0 +1,9 @@
+INSERT INTO aluno (matricula, nome, sobrenome, email, escola) VALUES (1001, 'Rafael', 'Silva', 'rafael@email.com', 'Escola A');
+INSERT INTO aluno (matricula, nome, sobrenome, email, escola) VALUES (2001, 'Leonardo', 'Nascimento', 'leonardo@email.com', 'Escola B');
+INSERT INTO aluno (matricula, nome, sobrenome, email, escola) VALUES (3001, 'Gabriel', 'Santos', 'gabriel@email.com', 'Escola C');
+INSERT INTO aluno (matricula, nome, sobrenome, email, escola) VALUES (3002, 'Letícia', 'Souza', 'leticia@email.com', 'Escola C');
+INSERT INTO aluno (matricula, nome, sobrenome, email, escola) VALUES (3003, 'Isabela', 'Rodrigues', 'isabela@email.com', 'Escola C');
+INSERT INTO aluno (matricula, nome, sobrenome, email, escola) VALUES (1002, 'Flávio', 'Pereira', 'flavio@email.com', 'Escola A');
+INSERT INTO aluno (matricula, nome, sobrenome, email, escola) VALUES (1003, 'Marcela', 'Fonseca', 'marcela@email.com', 'Escola A');
+INSERT INTO aluno (matricula, nome, sobrenome, email, escola) VALUES (2002, 'Gustavo', 'Leal', 'gustavo@email.com', 'Escola B');
+INSERT INTO aluno (matricula, nome, sobrenome, email, escola) VALUES (2003, 'Guilherme', 'Alves', 'guilherme@email.com', 'Escola B');
