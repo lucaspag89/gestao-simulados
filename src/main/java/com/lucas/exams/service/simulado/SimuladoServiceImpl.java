@@ -27,11 +27,15 @@ public class SimuladoServiceImpl implements SimuladoService {
         List<SimuladoDTO> simulados = new ArrayList<>();
         List<Simulado> simuladoList = simuladoRepository.findAll();
 
-        simuladoList.forEach(simulado -> {
-            List<ProvaDTO> provas = provaService.findAllBySimuladoId(simulado.getId());
-            simulados.add(new SimuladoDTO().fromSimulado(simulado, provas));
-        });
+        if (simuladoList.size() > 0) {
+            simuladoList.forEach(simulado -> {
+                List<ProvaDTO> provas = provaService.findAllBySimuladoId(simulado.getId());
+                simulados.add(new SimuladoDTO().fromSimulado(simulado, provas));
+            });
 
-        return simulados;
+            return simulados;
+        }
+
+        return null;
     }
 }

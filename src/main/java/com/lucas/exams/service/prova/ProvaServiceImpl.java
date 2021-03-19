@@ -26,11 +26,15 @@ public class ProvaServiceImpl implements ProvaService {
         List<ProvaDTO> provas = new ArrayList<>();
         List<Prova> provaList = provaRepository.findAllBySimuladoId(id);
 
-        provaList.forEach(prova -> {
-            List<QuestaoDTO> questoes = questaoService.findAllByProvaId(prova.getId());
-            provas.add(new ProvaDTO().fromProva(prova, questoes));
-        });
+        if (provaList.size() > 0) {
+            provaList.forEach(prova -> {
+                List<QuestaoDTO> questoes = questaoService.findAllByProvaId(prova.getId());
+                provas.add(new ProvaDTO().fromProva(prova, questoes));
+            });
 
-        return provas;
+            return provas;
+        }
+
+        return null;
     }
 }

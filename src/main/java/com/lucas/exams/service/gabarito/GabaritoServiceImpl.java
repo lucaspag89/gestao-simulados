@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class GabaritoServiceImpl implements GabaritoService{
+public class GabaritoServiceImpl implements GabaritoService {
 
     @Autowired
     GabaritoRepository gabaritoRepository;
@@ -23,10 +23,14 @@ public class GabaritoServiceImpl implements GabaritoService{
     public GabaritoProvaDTO findByProvaId(Long id) {
 
         Gabarito gabarito = gabaritoRepository.findFirstByProvaId(id);
+
         List<AlternativaGabaritoDTO> alternativaGabaritoDTOList =
                 alternativaService.findAllByGabaritoId(gabarito.getId());
 
-        return new GabaritoProvaDTO().fromGabarito(gabarito, alternativaGabaritoDTOList);
+        if (alternativaGabaritoDTOList.size() > 0) {
+            return new GabaritoProvaDTO().fromGabarito(gabarito, alternativaGabaritoDTOList);
+        }
 
+        return null;
     }
 }

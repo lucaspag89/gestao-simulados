@@ -38,11 +38,15 @@ public class RespostaAlunoServiceImpl implements RespostaAlunoService {
         Questao questao = questaoRepository.findFirstById(respostaAlunoDTO.getQuestaoId());
         Alternativa alternativa = alternativaRepository.findFirstById(respostaAlunoDTO.getAlternativaId());
 
-        RespostaAluno resposta =
-                new RespostaAluno().fromRespostaAlunoDTO(aluno, simulado, prova, questao, alternativa);
+        if (aluno != null && simulado != null && prova != null && questao != null && alternativa != null) {
+            RespostaAluno resposta =
+                    new RespostaAluno().fromRespostaAlunoDTO(aluno, simulado, prova, questao, alternativa);
 
-        respostaAlunoRepository.save(resposta);
+            respostaAlunoRepository.save(resposta);
 
-        return resposta;
+            return resposta;
+        }
+
+        return null;
     }
 }

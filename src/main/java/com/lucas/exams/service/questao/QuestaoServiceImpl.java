@@ -27,11 +27,15 @@ public class QuestaoServiceImpl implements QuestaoService {
         List<QuestaoDTO> questoes = new ArrayList<>();
         List<Questao> questaoList = questaoRepository.findAllByProvaId(id);
 
-        questaoList.forEach(questao -> {
-            List<AlternativaDTO> alternativas = alternativaService.findAllByQuestaoId(questao.getId());
-            questoes.add(new QuestaoDTO().fromQuestao(questao, alternativas));
-        });
+        if (questaoList.size() > 0) {
+            questaoList.forEach(questao -> {
+                List<AlternativaDTO> alternativas = alternativaService.findAllByQuestaoId(questao.getId());
+                questoes.add(new QuestaoDTO().fromQuestao(questao, alternativas));
+            });
 
-        return questoes;
+            return questoes;
+        }
+
+        return null;
     }
 }
